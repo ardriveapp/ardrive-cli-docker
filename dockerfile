@@ -18,6 +18,7 @@ RUN adduser node sudo
 #Set home var
 ENV HOME /home/node
 
+#RUN apt-get clean -y
 COPY scripts/gitClone.sh /home/node/
 RUN chmod +x /home/node/gitClone.sh
 COPY scripts/yarnInstall.sh /home/node/
