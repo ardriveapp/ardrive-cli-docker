@@ -4,10 +4,11 @@ RUN apt-get update
 RUN apt-get install --no-install-recommends -y \
     git \
     jq \
+    iputils-ping \
     sudo \
     vim
 
-#Clear apt cache   
+#Clear apt cache
 RUN apt-get clean -y
 
 #Set password and sudo
@@ -36,8 +37,6 @@ ENV WALLET /home/node/tmp/wallet.json
 # Create uplads folder
 RUN mkdir uploads
 # Patch bashrc
-RUN cat .bashrc_patch >> .bashrc
+RUN cat .bashrc_patch >>.bashrc
 # Start with Bash
 ENTRYPOINT [ "/bin/bash" ]
-
-
